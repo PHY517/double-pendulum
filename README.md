@@ -55,19 +55,19 @@ The corresponding angular velocities are:
 
 The Cartesian positions of the masses are
 
-$$
+```math
 x_1 = L_1\sin\theta_1,
 \qquad
 y_1 = -L_1\cos\theta_1,
-$$
+```
 
 and
 
-$$
+```math
 x_2 = x_1 + L_2\sin\theta_2,
 \qquad
 y_2 = y_1 - L_2\cos\theta_2.
-$$
+```
 
 The coupled nonlinear equations of motion are integrated numerically using `scipy.integrate.odeint`.
 
@@ -75,24 +75,24 @@ The coupled nonlinear equations of motion are integrated numerically using `scip
 
 The total mechanical energy is the sum of the kinetic and potential energies:
 
-$$
+```math
 E = T + V.
-$$
+```
 
 For the double pendulum, the kinetic energy is
 
-$$
+```math
 T = \frac{1}{2}(m_1+m_2)L_1^2\omega_1^2
   + \frac{1}{2}m_2L_2^2\omega_2^2
   + m_2L_1L_2\omega_1\omega_2\cos(\theta_1-\theta_2),
-$$
+```
 
 and the potential energy is
 
-$$
+```math
 V = -(m_1+m_2)gL_1\cos\theta_1
     -m_2gL_2\cos\theta_2.
-$$
+```
 
 A useful Python function is:
 
@@ -149,9 +149,9 @@ To test for sensitive dependence on initial conditions, solve the equations for 
 
 Let \((x_{2a},y_{2a})\) and \((x_{2b},y_{2b})\) be the positions of the second bob in the two simulations. Their separation is
 
-$$
+```math
 d(t)=\sqrt{[x_{2a}(t)-x_{2b}(t)]^2+[y_{2a}(t)-y_{2b}(t)]^2}.
-$$
+```
 
 In Python:
 
@@ -165,9 +165,9 @@ A rapid increase in \(d(t)\) shows that the two trajectories are diverging.
 
 During an interval of exponential divergence, the separation approximately follows
 
-$$
+```math
 d(t) \approx d_0 e^{\lambda t},
-$$
+```
 
 where:
 
@@ -176,15 +176,15 @@ where:
 
 Taking the natural logarithm gives
 
-$$
+```math
 \ln d(t) = \ln d_0 + \lambda t.
-$$
+```
 
 Therefore, a plot of \(\ln d\) versus time should contain an approximately straight region. The slope of that region estimates the Lyapunov exponent:
 
-$$
+```math
 \lambda \approx \frac{d\ln d}{dt}.
-$$
+```
 
 Equivalently, exponential divergence appears approximately linear when \(d(t)\) is shown on a semilogarithmic plot:
 
