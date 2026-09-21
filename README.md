@@ -41,17 +41,17 @@ Use this file to visualize how two initially similar trajectories diverge and to
 
 ## Physical Model
 
-The system contains two point masses, \(m_1\) and \(m_2\), connected by massless rods of lengths \(L_1\) and \(L_2\).
+The system contains two point masses, $m_1$ and $m_2$, connected by massless rods of lengths $L_1$ and $L_2$.
 
 The angular coordinates are:
 
-- \(\theta_1\): angle of the first rod measured from the downward vertical.
-- \(\theta_2\): angle of the second rod measured from the downward vertical.
+- $\theta_1$: angle of the first rod measured from the downward vertical.
+- $\theta_2$: angle of the second rod measured from the downward vertical.
 
 The corresponding angular velocities are:
 
-- \(\omega_1 = d\theta_1/dt\)
-- \(\omega_2 = d\theta_2/dt\)
+- $\omega_1 = d\theta_1/dt$
+- $\omega_2 = d\theta_2/dt$
 
 The Cartesian positions of the masses are
 
@@ -147,7 +147,7 @@ Chaos does not mean that the equations contain randomness. It means that long-te
 
 To test for sensitive dependence on initial conditions, solve the equations for two nearly identical initial states.
 
-Let \((x_{2a},y_{2a})\) and \((x_{2b},y_{2b})\) be the positions of the second bob in the two simulations. Their separation is
+Let $(x_{2a},y_{2a})$ and $(x_{2b},y_{2b})$ be the positions of the second bob in the two simulations. Their separation is
 
 ```math
 d(t)=\sqrt{[x_{2a}(t)-x_{2b}(t)]^2+[y_{2a}(t)-y_{2b}(t)]^2}.
@@ -159,7 +159,7 @@ In Python:
 d = np.sqrt((x2a - x2b)**2 + (y2a - y2b)**2)
 ```
 
-A rapid increase in \(d(t)\) shows that the two trajectories are diverging.
+A rapid increase in $d(t)$ shows that the two trajectories are diverging.
 
 ## Lyapunov Exponent
 
@@ -171,8 +171,8 @@ d(t) \approx d_0 e^{\lambda t},
 
 where:
 
-- \(d_0\) is the initial separation.
-- \(\lambda\) is the largest Lyapunov exponent.
+- $d_0$ is the initial separation.
+- $\lambda$ is the largest Lyapunov exponent.
 
 Taking the natural logarithm gives
 
@@ -180,13 +180,13 @@ Taking the natural logarithm gives
 \ln d(t) = \ln d_0 + \lambda t.
 ```
 
-Therefore, a plot of \(\ln d\) versus time should contain an approximately straight region. The slope of that region estimates the Lyapunov exponent:
+Therefore, a plot of $\ln d$ versus time should contain an approximately straight region. The slope of that region estimates the Lyapunov exponent:
 
 ```math
 \lambda \approx \frac{d\ln d}{dt}.
 ```
 
-Equivalently, exponential divergence appears approximately linear when \(d(t)\) is shown on a semilogarithmic plot:
+Equivalently, exponential divergence appears approximately linear when $d(t)$ is shown on a semilogarithmic plot:
 
 ```python
 plt.semilogy(t, d)
@@ -199,7 +199,7 @@ A positive Lyapunov exponent indicates that nearby trajectories separate exponen
 
 ## Estimating the Lyapunov Exponent
 
-Select an interval in which \(\ln d(t)\) is approximately linear, before the separation saturates:
+Select an interval in which $\ln d(t)$ is approximately linear, before the separation saturates:
 
 ```python
 from scipy.stats import linregress
@@ -229,10 +229,10 @@ The main signatures to examine are:
    Nearly identical starting conditions eventually produce visibly different trajectories.
 
 2. **Exponential separation**  
-   The distance between nearby trajectories grows approximately as \(e^{\lambda t}\) during an intermediate time interval.
+   The distance between nearby trajectories grows approximately as $e^{\lambda t}$ during an intermediate time interval.
 
 3. **Linear region on a semilog plot**  
-   Exponential growth appears approximately linear when \(d(t)\) is plotted with a logarithmic vertical axis.
+   Exponential growth appears approximately linear when $d(t)$ is plotted with a logarithmic vertical axis.
 
 4. **Positive Lyapunov exponent**  
    A positive fitted slope indicates exponential divergence.
@@ -267,6 +267,6 @@ pip install numpy scipy matplotlib
 
 ## Summary
 
-The double pendulum is a useful example of classical chaos because it combines simple physical components with nonlinear, strongly coupled motion. By comparing two nearly identical simulations, one can observe sensitive dependence on initial conditions. If their separation grows approximately exponentially, the slope of \(\ln d(t)\) provides an estimate of the largest Lyapunov exponent.
+The double pendulum is a useful example of classical chaos because it combines simple physical components with nonlinear, strongly coupled motion. By comparing two nearly identical simulations, one can observe sensitive dependence on initial conditions. If their separation grows approximately exponentially, the slope of $\ln d(t)$ provides an estimate of the largest Lyapunov exponent.
 
 > A chaotic system is deterministic, but tiny uncertainties in its initial state can grow exponentially and make long-term prediction impractical.
